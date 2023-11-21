@@ -8,6 +8,12 @@
         public int TemperatureFahrenheit { get; set; }
     }
 
+    public class WrapperCityWeather
+    {
+        public string? BackgrounColorBox { get; set; }
+        public CityWeather? CityWeather { get; set; }
+    }
+
     public static class CityWeatherFactory
     {
         public static List<CityWeather> GetCityWeathers()
