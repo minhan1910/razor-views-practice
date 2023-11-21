@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CityWeather>
+
+     @*Fahrenheit is less than 44 = blue background color
+  Fahrenheit is between 44 and 74 = blue background color
+  Fahrenheit is greater than 74 = blue background color*@
+
+@{
+    string GetBackground(int fah)
+    {
+        string res = string.Empty;
+
+        return fah < 44 ? "blue-back" :
+               fah <= 74 ? "green-back" : "orange-back";
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Products</title>
+    <meta charset="utf-8" />
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container ">
+        <div class="page-content margin-auto">
+            <div class="margin-bottom">
+                <h1>Weather</h1>               
+            </div>
+            <div class="margin-top-200 margin-left flex">
+                @foreach (CityWeather city in Model)
+                {
+                    <div class="box @GetBackground(city.TemperatureFahrenheit)">
+                        <div class="flex-borderless">
+                            <div class="w-50">
+                                <h1>@city.CityName</h1>
+                                <p>@city.DateAndTime.ToString("hh:mm tt")</p>
+                                <a href="/weather/@city.CityUniqueCode">Details</a>
+                            </div>
+                            <div class="border-left w-50">
+                                <h1 class="margin-left">@city.TemperatureFahrenheit <sup class="text-grey">&#8457</sup></h1>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
