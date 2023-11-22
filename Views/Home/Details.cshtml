@@ -10,7 +10,7 @@
 
 <div class="margin-top-200 margin-left flex" style="justify-content: center;">
     <div class="box">
-        <div class="flex-borderless">
+        @*<div class="flex-borderless">
             <div class="w-50">
                 <h1>@Model.CityName</h1>
                 <p class="text-dark-grey">@Model.DateAndTime.ToString("dd MMM yyyy")</p>
@@ -19,7 +19,8 @@
             <div class="border-left w-50">
                 <h1 class="margin-left">@Model.TemperatureFahrenheit <sup class="text-grey">&#8457</sup></h1>
             </div>
-        </div>
+        </div>*@
+        @await Component.InvokeAsync("City", new { city = Model })
     </div>
 </div>
 <div class="text-center">

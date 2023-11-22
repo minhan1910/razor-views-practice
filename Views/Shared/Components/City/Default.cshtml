@@ -1,0 +1,12 @@
+﻿@model CityWeather
+
+<div class="flex-borderless">
+    <div class="w-50">
+        <h1>@Model.CityName</h1>
+        <p>@Model.DateAndTime.ToString("hh:mm tt")</p>
+        <a href="/weather/@Model.CityUniqueCode">Details</a>
+    </div>
+    <div class="border-left w-50">
+        <h1 class="margin-left">@Model.TemperatureFahrenheit <sup class="text-grey">&#8457</sup></h1>
+    </div>
+</div>

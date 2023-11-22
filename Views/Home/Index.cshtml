@@ -20,7 +20,7 @@
     @foreach (CityWeather city in Model)
     {
         <div class="box @GetBackground(city.TemperatureFahrenheit)">
-            <div class="flex-borderless">
+           @* <div class="flex-borderless">
                 <div class="w-50">
                     <h1>@city.CityName</h1>
                     <p>@city.DateAndTime.ToString("hh:mm tt")</p>
@@ -29,7 +29,8 @@
                 <div class="border-left w-50">
                     <h1 class="margin-left">@city.TemperatureFahrenheit <sup class="text-grey">&#8457</sup></h1>
                 </div>
-            </div>
+            </div>*@
+            @await Component.InvokeAsync("City", new { city = city })
         </div>
     }
 </div>
